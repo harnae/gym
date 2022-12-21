@@ -3,7 +3,14 @@
 	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="">
-
-
+<mapper namespace="listMapper">
+	<resultMap id="userList" type="/gymProject/src/main/java/form/ListForm">
+		<result column="cardNo" jdbcType="varchar" property="cardNo"/>
+		<result column="name" jdbcType="varchar" property="name"/>
+		<result column="gender" jdbcType="varchar" property="gender"/>
+		<result column="phone" jdbcType="varchar" property="phone"/>
+	</resultMap>
+	<select id="allListSelect" resultMap="userList">
+		SELECT cardNo, name, gender, phone FROM test1
+	</select>
 </mapper>

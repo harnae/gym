@@ -1,4 +1,4 @@
-package form;
+package com.example.gymProject.form;
 
 import java.io.Serializable;
 
