@@ -1,7 +1,7 @@
 <html>
 <head>
   <title>ログイン</title>
-  <link href="login.css" rel="stylesheet" />
+  <link href="/css/login.css" rel="stylesheet" />
   <!--<script src="login.js"></script>-->
 </head>
 
@@ -14,7 +14,7 @@
 </h2>
 <div class="login">
   <div class="login-triangle"></div>
-  
+
   <h2 class="login-header">Log in</h2>
 
   <form class="login-container" id="login" action="#" method="post" onsubmit="return ck(this);">
@@ -44,31 +44,31 @@
 
 <script>
 
-  
+
   function ck(){
-  
+
   let id = document.getElementById("id").value;
   let password = document.getElementById("pwd").value;
   let check = true;
-  
-  
-  
+
+
+
   if (password === "") {
     document.getElementById("passwordError").innerHTML = "暗証番号を入力してください";
       check = false;
   } else {
     document.getElementById("passwordError").innerHTML = "";
   }
-  
+
   if (id === "") {
     document.getElementById("idError").innerHTML = "IDを入力してください";
       check = false;
   } else {
     document.getElementById("idError").innerHTML = "";
   }
-  
+
   return check;
-  
+
   }
 </script>
 
