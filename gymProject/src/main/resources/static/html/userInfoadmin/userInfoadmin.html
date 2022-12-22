@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html>
-<title>会員情報</title>
+<title>会員情報（管理者）</title>
 
 <head>
-    <link href="userinfo.css" rel="stylesheet" />
+    <link href="../css/userinfoadmin.css" rel="stylesheet" />
     <script src=""></script>
 </head>
 
 <body>
-    <h2 style="text-align: center;">会員情報</h2>
+    <h2 style="text-align: center;">会員情報（管理者）</h2>
     <form action="">
         <div id="wrapper">
             <table class="table">
@@ -19,14 +19,6 @@
                 <tr>
                     <td class="id">ID</td>
                     <td><input type="text" value="xxxxxxxx" readonly="true" id="id"></td>
-                </tr>
-                <tr>
-                    <td class="pwd">パスワード</td>
-                    <td><input type="password" value="" readonly="true" id="pwd"></td>
-                </tr>
-                <tr>
-                    <td class="pwdck">パスワード再確認</td>
-                    <td><input type="password" value="" readonly="true" id="pwdck"></td>
                 </tr>
                 <tr>
                     <td class="name">名前</td>
@@ -52,9 +44,7 @@
                     <td class="endTime">退館時間</td>
                     <td><input type="text" value="xxxx年xx月xx日　xx時xx分" readonly="true" id="etime"></td>
                 </tr>
-                <tr>
-                    <td colspan="2"><button id="Button" onclick="">修正</button></td>
-                </tr>
+
             </table>
         </div>
     </form>

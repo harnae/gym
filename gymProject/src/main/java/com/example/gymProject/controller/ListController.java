@@ -22,6 +22,6 @@ public class ListController {
 	public String index() {
 		System.out.println(ls.getUserList());
 
-		return "login/login";
+		return "/login/login";
 	}
 }
