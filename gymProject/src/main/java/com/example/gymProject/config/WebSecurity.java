@@ -28,10 +28,9 @@ public class WebSecurity {
 //	        .build();
 		return httpSecurity
 				.authorizeHttpRequests(authco -> authco
-						.requestMatchers("/css/**")
-						.permitAll()
-						.requestMatchers("/")
-						.permitAll()
+						.requestMatchers("/css/**","/js/**").permitAll()
+						.requestMatchers("/**").permitAll()
+
 						)
 				.build();
 
