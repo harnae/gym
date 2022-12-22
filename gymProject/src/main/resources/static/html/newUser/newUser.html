@@ -12,7 +12,7 @@
 
 <body>
 	<input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
-    <form class="signIn" id="signInId" th:object="newUserSignIn" action="/signup" method="post" onsubmit="return signUpCheck()">
+    <form class="signIn" id="signInId" action="/signup" method="post" onsubmit="return signUpCheck()">
     <div class="wrapper">
         <div class="title">
             <h1 style="font-size: 21px;">会員登録</h1>
@@ -43,8 +43,8 @@
             <div id="areaError" class="error"></div>
         </div>
         <div class="gender">
-            <input id="gender_man" type="radio" name="gender">男
-            <input id="gender_woman" type="radio" name="gender">女
+            <input id="gender_man" type="radio" name="gender" value="man">男
+            <input id="gender_woman" type="radio" name="gender" value="woman">女
             <div id="genderError" class="error"></div>
         </div>
         <div class="line">

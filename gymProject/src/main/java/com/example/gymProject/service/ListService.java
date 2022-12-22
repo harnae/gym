@@ -6,4 +6,5 @@ import com.example.gymProject.form.ListForm;
 
 public interface ListService {
 	public List<ListForm> getUserList();
+	public Integer getListCount();
 }

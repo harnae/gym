@@ -1,4 +1,5 @@
-<html>
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
 <title>会員リスト</title>
 <link href="../../css/list.css" rel="stylesheet" />
@@ -25,49 +26,20 @@
 <th class="gender">性別</th>
 <th class="phone">電話番号</th>
 </tr>
-<tr>
-<td>xxxxxx</td>
-<td>xxxxxxx</td>
-<td>x</td>
-<td>xxx-xxxx-xxxx</td>
-</tr>
-<tr>
-<td>xxxxxx</td>
-<td>xxxxxxx</td>
-<td>x</td>
-<td>xxx-xxxx-xxxx</td>
-</tr>
-<tr>
-<td>xxxxxx</td>
-<td>xxxxxxx</td>
-<td>x</td>
-<td>xxx-xxxx-xxxx</td>
-</tr>
-<tr>
-<td>xxxxxx</td>
-<td>xxxxxxx</td>
-<td>x</td>
-<td>xxx-xxxx-xxxx</td>
-</tr>
-<tr>
-<td>xxxxxx</td>
-<td>xxxxxxx</td>
-<td>x</td>
-<td>xxx-xxxx-xxxx</td>
-</tr>
-<!--
+
 <tr th:each="user : ${userList}">
 		<td th:text="${user.cardNo}"></td>
 		<td th:text="${user.name}"></td>
 		<td th:text="${user.gender}"></td>
 		<td th:text="${user.phone}"></td>
 </tr>
--->
+
 
 </table>
 </br>
 <div style="text-align: center;">
 <a href="">1</a>
+
 </div>
 
 </body>

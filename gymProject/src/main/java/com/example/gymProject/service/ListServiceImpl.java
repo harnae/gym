@@ -15,8 +15,14 @@ public class ListServiceImpl implements ListService {
 	@Override
 	public List<ListForm> getUserList() {
 		List<ListForm> aa = listDao.allListSelect();
-
 		return aa;
 	}
+
+	@Override
+	public Integer getListCount() {
+		Integer count = listDao.listCount();
+		return count;
+	}
+
 
 }
