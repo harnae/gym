@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
 
 <head>
     <title>会員登録</title>
@@ -10,21 +10,21 @@
 </head>
 
 <body>
-    <form class="signIn" id="signInId" action="" method="post" onsubmit="return signUpCheck()">
+    <form class="signIn" id="signInId" th:action="@{/signup}" method="post" onsubmit="return signUpCheck()">
     <div class="wrapper">
         <div class="title">
             <h1 style="font-size: 21px;">会員登録</h1>
         </div>
         <div class="id">
-            <input id="id" type="text" placeholder="IDを入力してください">
+            <input id="id" type="text" name="id" placeholder="IDを入力してください">
             <div id="idError" class="error"></div>
         </div>
         <div class="name">
-            <input id="name" type="text" placeholder="名前を入力してください">
+            <input id="name" type="text" name="name" placeholder="名前を入力してください">
             <div id="nameError" class="error"></div>
         </div>
         <div class="password">
-            <input id="password" type="password" placeholder="暗証番号を入力してください">
+            <input id="password" type="password" name="password" placeholder="暗証番号を入力してください">
             <div id="passwordError" class="error"></div>
         </div>
         <div class="passwordCheck">
@@ -32,25 +32,27 @@
             <div id="passwordCheckError" class="error"></div>
         </div>
         <div class="phone">
-            <input id="phone" type="text" minlength="12" placeholder="080-0000-0000">
+            <input id="phone" type="text" minlength="12" name="phone" placeholder="080-0000-0000">
             <div id="phoneError" class="error"></div>
         </div>
 
         <div class="area">
-            <input id="area" type="text" placeholder="住所を入力してください">
+            <input id="area" type="text" name="area" placeholder="住所を入力してください">
             <div id="areaError" class="error"></div>
         </div>
         <div class="gender">
-            <input id="gender_man" type="radio" name="gender">男
-            <input id="gender_woman" type="radio" name="gender">女
+            <input id="gender_man" type="radio" name="gender" value="男">男
+            <input id="gender_woman" type="radio" name="gender" value="女">女
             <div id="genderError" class="error"></div>
         </div>
         <div class="line">
             <hr>
         </div>
+        <input type="hidden" name="role" value="ROLE_USER">
         <div class="signUp">
             <input type="submit" id="signUpButton" value="登録"/>
         </div>
+        	
     </div>
 </form>
 </body>

@@ -1,8 +1,8 @@
-<html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
   <title>ログイン</title>
-  <link href="css/login.css" rel="stylesheet" />
-  <!--<script src="login.js"></script>-->
+  <link href="/css/login.css" rel="stylesheet" />
+<!--   <script src="login.js"></script> -->
 </head>
 
 
@@ -17,28 +17,29 @@
   
   <h2 class="login-header">Log in</h2>
 
-  <form class="login-container" id="login" action="#" method="post" onsubmit="return ck(this);">
+  <form class="login-container" id="login" th:action="@{/loginProc}" method="post" onsubmit="return ck(this);">
 <div align="center">
 
-
-  <label>
-    <input type="radio" name="user" value="notAdmin" checked/>
+<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+<!--   <label>
+    <input type="radio" name="role" value="notAdmin" checked/>
     <span>会員</span>
     </label>
 
 <label>
-<input type="radio" name="user" value="admin" />
+<input type="radio" name="role" value="admin" />
 <span>管理者</span>
 </label>
-
+ -->
 
 </div>
-    <p><input type="id" id="id" placeholder="ID"></p>
+    <p><input type="id" id="id" name="username" placeholder="ID"></p>
     <div id="idError" class="error"></div>
-    <p><input type="password" id="pwd" placeholder="Password"></p>
+    <p><input type="password" id="pwd" name="password" placeholder="Password"></p>
     <div id="passwordError" class="error"></div>
-<p><input type="submit" value="Log in"></p>
-<p><a href="#">Sign in</a></p>
+    
+<p><button>Log in</button></p>
+<p><a href="/newuser">Sign in</a></p>
   </form>
 </div>
 
