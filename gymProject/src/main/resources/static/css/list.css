@@ -3,26 +3,26 @@ table{
     border-spacing: 0;
     width: 100%;
   }
-  
+
   table tr{
     border-bottom: solid 1px #eee;
     cursor: pointer;
   }
-  
+
   table tr:hover{
     background-color: #d4f0fd;
   }
-  
+
   table th,table td{
     text-align: center;
-    
+
     padding: 10px 0;
   }
-  
+
   .gender{
   width: 5%;
   }
-  
+
   .cardNo{
   width: 20%;
   }
@@ -32,12 +32,12 @@ table{
   .name{
   width: 25%;
   }
-  
+
   .button_solid013 a {
       background: #6bb6ff;
       border-radius: 3px;
       position: relative;
-      
+
       margin: 0 auto;
       max-width: 100px;
       padding: 10px 10px;
@@ -54,7 +54,7 @@ table{
     border-bottom: none;
   }
   .button_solid013 a:before {
-   
+
     display: block;
     position: absolute;
     width: 100%;
@@ -62,7 +62,7 @@ table{
     top: 0;
     left: -100%;
     background-image: linear-gradient( 130deg, rgba(255, 255, 255, 0) 25%, rgba(255, 255, 255, 0.3) 50%, rgba(255, 255, 255, 0) 55%);
-    
+
   }
   @keyframes shine {
     33% {
@@ -73,13 +73,13 @@ table{
     }
   }
   .button_solid013 a:after {
-    
+
     display: inline-block;
     color: #fff;
     padding-left: 10px;
     font-size: 20px;
   }
-  
+
   .updateButton a {
     display: flex;
     justify-content: space-between;
@@ -93,7 +93,7 @@ table{
     background-color: #cccccc;
     border-radius: 50vh;
   }
-  
+
   .updateButton a::after {
     content: '';
     width: 5px;
@@ -102,13 +102,13 @@ table{
     border-right: 3px solid #333333;
     transform: rotate(45deg);
   }
-  
+
   .updateButton a:hover {
     text-decoration: none;
     background-color: #bbbbbb;
   }
-  
-  
+
+
   .updateButton a {
     display: flex;
     justify-content: space-between;
@@ -124,7 +124,7 @@ table{
     background-color: #cccccc;
     border-radius: 50vh;
   }
-  
+
   .updateButton a::after {
     content: '';
     width: 5px;
@@ -133,14 +133,14 @@ table{
     border-right: 3px solid #333333;
     transform: rotate(45deg);
   }
-  
+
   .updateButton a:hover {
     text-decoration: none;
     background-color: #bbbbbb;
   }
-  
-  
-  
+
+
+
   .deleteButton a {
     display: flex;
     justify-content: space-between;
@@ -155,7 +155,7 @@ table{
     background-color: #FF0033;
     border-radius: 50vh;
   }
-  
+
   .deleteButton a::after {
     content: '';
     width: 5px;
@@ -164,14 +164,14 @@ table{
     border-right: 3px solid #333333;
     transform: rotate(45deg);
   }
-  
+
   .deleteButton a:hover {
     text-decoration: none;
     background-color: #FF0033;
   }
-  
-  
-  
+
+
+
   .search_container{
     box-sizing: border-box;
   }

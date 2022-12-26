@@ -11,8 +11,8 @@
 <h2 align="center">会員リスト</h2>
 <p>
 <div class="searchForm" style="float:right;">
-<form method="get" action="#" class="search_container">
-  <input type="text" size="25" placeholder="検索">
+<form method="get" action="/list/search" class="search_container">
+  <input type="text" size="25" name="search" placeholder="名前検索">
   <input type="submit" value="Search">
 </form>
 </div>
@@ -29,7 +29,7 @@
 
 <tr th:each="user : ${userList}">
 		<td th:text="${user.cardNo}"></td>
-		<td th:text="${user.name}"></td>
+		<td th:text="${user.name}" th:href="@{#}"></td>
 		<td th:text="${user.gender}"></td>
 		<td th:text="${user.phone}"></td>
 </tr>
@@ -38,9 +38,18 @@
 </table>
 </br>
 <div style="text-align: center;">
-<a href="">1</a>
+<th:block th:if="${searched}" th:each="i : ${#numbers.sequence(pag.startPage, pag.endPage)}">
+	<a th:href="@{/list/search(search=${searchWord},page=${i},range=${pag.range})}" th:text="${i}"/>
+</th:block>
+
+<th:block th:if="${listed}" th:each="i2 : ${#numbers.sequence(pag.startPage, pag.endPage)}">
+	<a th:href="@{/list/list(page=${i2},range=${pag.range})}" th:text="${i2}"/>
+</th:block>
+
+
 
 </div>
 
 </body>
+
 </html>

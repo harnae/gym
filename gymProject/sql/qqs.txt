@@ -1,0 +1,12 @@
+create table test2
+(cardNo int auto_increment primary key,
+id varchar(20) unique,
+password varchar(500),
+name varchar(10),
+phone varchar(20),
+addr varchar(300),
+gender varchar(10),
+startTime datetime,
+endTime datetime,
+role int,
+constraint role_ck check (0 < role < 3));
