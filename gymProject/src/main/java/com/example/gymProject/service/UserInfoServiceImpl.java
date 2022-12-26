@@ -1,7 +1,5 @@
 package com.example.gymProject.service;
 
-import java.util.Collection;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -17,8 +15,8 @@ public class UserInfoServiceImpl implements UserInfoService {
 	PasswordEncoder pwden;
 
 	@Override
-	public Collection<UserInfoForm> getUserInfo(Integer cardNo) {
-		Collection<UserInfoForm> userInfo = uid.getUserInfo(cardNo);
+	public UserInfoForm getUserInfo(Integer cardNo) {
+		UserInfoForm userInfo = uid.getUserInfo(cardNo);
 		return userInfo;
 	}
 

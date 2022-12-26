@@ -1,7 +1,6 @@
 package com.example.gymProject.form;
 
 import java.io.Serializable;
-import java.util.Date;
 
 import lombok.Data;
 
@@ -13,7 +12,7 @@ public class UserInfoForm implements Serializable {
 	private String id;
 	private String phone;
 	private String addr;
-	private Date startTime;
-	private Date endTime;
+	private String startTime;
+	private String endTime;
 	private Integer role;
 }

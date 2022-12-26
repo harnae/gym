@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <title>会員情報</title>
 
 <head>
@@ -9,16 +9,17 @@
 
 <body>
     <h2 style="text-align: center;">会員情報</h2>
+    <input type="hidden" th:value="${userinfo.role}"/>
     <form action="">
-        <div id="wrapper">
+        <div id="wrapper" >
             <table class="table">
                 <tr>
                     <td class="cardNo">カード番号</td>
-                    <td><input type="text" value="xxxxxx" readonly="true" id="cardNum"></td>
+                    <td><input type="text" th:value="${userinfo.cardNo}"  readonly="true" id="cardNum"></td>
                 </tr>
                 <tr>
                     <td class="id">ID</td>
-                    <td><input type="text" value="xxxxxxxx" readonly="true" id="id"></td>
+                    <td><input type="text" th:value="${userinfo.id}" readonly="true" id="id"></td>
                 </tr>
                 <tr>
                     <td class="pwd">パスワード</td>
@@ -30,30 +31,30 @@
                 </tr>
                 <tr>
                     <td class="name">名前</td>
-                    <td><input type="text" value="xxxxxxx" readonly="true" id="name"></td>
+                    <td><input type="text" th:value="${userinfo.name}" readonly="true" id="name"></td>
                 </tr>
                 <tr>
                     <td class="phone">電話番号</td>
-                    <td><input type="text" value="xxx-xxxx-xxxx" readonly="true" id="phone"></td>
+                    <td><input type="text" th:value="${userinfo.phone}" readonly="true" id="phone"></td>
                 </tr>
                 <tr>
                     <td class="address">住所</td>
-                    <td><input type="text" value="xxxxxxxxxxxxxxxxxxxxxxxxxxxxx" readonly="true" id="addr"></td>
+                    <td><input type="text" th:value="${userinfo.addr}" readonly="true" id="addr"></td>
                 </tr>
                 <tr>
                     <td class="gender">性別</td>
-                    <td><input type="text" value="x" readonly="true" id="sex"></td>
+                    <td><input type="text" th:value="${userinfo.gender}" readonly="true" id="sex"></td>
                 </tr>
                 <tr>
                     <td class="startTime">入館時間</td>
-                    <td><input type="text" value="xxxx年xx月xx日　xx時xx分" readonly="true" id="stime"></td>
+                    <td><input type="text" th:value="${userinfo.startTime}" readonly="true" id="stime"></td>
                 </tr>
                 <tr>
                     <td class="endTime">退館時間</td>
-                    <td><input type="text" value="xxxx年xx月xx日　xx時xx分" readonly="true" id="etime"></td>
+                    <td><input type="text" th:value="${userinfo.endTime}"  readonly="true" id="etime"></td>
                 </tr>
                 <tr>
-                    <td colspan="2"><button id="Button" onclick="">修正</button></td>
+                    <td colspan="2"><button th:if="${userinfo.role == 2}" id="Button" onclick="">修正</button></td>
                 </tr>
             </table>
         </div>
