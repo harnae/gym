@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 <title>会員情報</title>
 
 <head>
@@ -9,13 +9,13 @@
 
 <body>
     <h2 style="text-align: center;">会員情報</h2>
-    <input type="hidden" th:value="${userinfo.role}"/>
+    <input type="hidden" th:value="${userinfo.role}" readonly="true"/>
     <form action="">
         <div id="wrapper" >
             <table class="table">
                 <tr>
                     <td class="cardNo">カード番号</td>
-                    <td><input type="text" th:value="${userinfo.cardNo}"  readonly="true" id="cardNum"></td>
+                    <td><input type="text" th:value="${userinfo.cardNo}"  readonly="true" id="cardNo"></td>
                 </tr>
                 <tr>
                     <td class="id">ID</td>
@@ -54,11 +54,83 @@
                     <td><input type="text" th:value="${userinfo.endTime}"  readonly="true" id="etime"></td>
                 </tr>
                 <tr>
-                    <td colspan="2"><button th:if="${userinfo.role == 2}" id="Button" onclick="">修正</button></td>
+                    <td class="updateButton" colspan="2"><button type="button" th:if="${userinfo.role == 2}" id="Button" onclick="updateMode()">修正</button></td>
                 </tr>
             </table>
         </div>
     </form>
 </body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script th:inline="javascript">
+let mode = false;
 
+//const button1 = document.getElementByClass("updateButton");
+function updateMode () {
+	if(mode===false){
+		mode = true;
+		$(".updateButton").html('<button type="button" th:if="${userinfo.role == 2}" id="Button" onclick="updateMode()">修正!!</button>');
+		$('#pwd').prop('readonly', false);
+		$('#pwdck').prop('readonly', false);
+		$('#name').prop('readonly', false);
+		$('#phone').prop('readonly', false);
+		$('#addr').prop('readonly', false);
+
+	}
+	else{
+		if(window.confirm("go?")){
+			const userCardNo = /*[[${userinfo.cardNo}]]*/;
+			const userName = /*[[${userinfo.name}]]*/;
+			const userPhone = /*[[${userinfo.phone}]]*/;
+			const userAddr = /*[[${userinfo.addr}]]*/;
+			const userPwd = document.getElementById("pwd");
+			console.log(userCardNo);
+			console.log(userName);
+			const updateInfo = {
+				"cardNo" : userCardNo,
+				"name" : userName,
+				"phone" : userPhone,
+				"addr" : userAddr
+			};
+
+			const test2 = {
+					"cardNo" : "1",
+					"name" : "feaed",
+					"phone" : "151351",
+					"addr" : "dafgrhth"
+			};
+			console.log(userName);
+			$.ajax({
+				type : "post",
+				url : "/update",
+				data : JSON.stringify(updateInfo),
+				contentType : "application/json; charset:UTF-8",
+				//dataType : "json",
+				success : function(resp){
+					alert("success");
+				},
+				error : function(request, error, status){
+					console.log(request);
+					console.log(error);
+					console.log(status);
+					return;
+				}
+			});
+
+		}
+
+
+
+
+
+		mode = false;
+		$(".updateButton").html('<button type="button" th:if="${userinfo.role == 2}" id="Button" onclick="updateMode()">修正</button>');
+		$('#pwd').prop('readonly', true);
+		$('#pwdck').prop('readonly', true);
+		$('#name').prop('readonly', true);
+		$('#phone').prop('readonly', true);
+		$('#addr').prop('readonly', true);
+
+	}
+}
+</script>
 </html>
