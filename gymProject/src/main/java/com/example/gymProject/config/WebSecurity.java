@@ -29,7 +29,7 @@ public class WebSecurity {
 //	        .httpBasic(Customizer.withDefaults())
 //	        .build();
 		return httpSecurity
-				.csrf(csrf -> csrf.disable())
+				//.csrf(csrf -> csrf.disable())
 				.authorizeHttpRequests(authco -> authco
 						.requestMatchers("/css/**","/js/**").permitAll()
 						.requestMatchers("/**").permitAll()

@@ -42,7 +42,7 @@ public class UserInfoController {
 		String name = (String)updateInfo.get("name");
 		String phone = (String)updateInfo.get("phone");
 		String addr = (String)updateInfo.get("addr");
-		uis.changeUserInfo(name, addr, phone, cardNo);
+		boolean flag = uis.changeUserInfo(name, addr, phone, cardNo);
 		//System.out.println("updateinfo = " + updateInfo);
 	}
 
@@ -51,7 +51,7 @@ public class UserInfoController {
 	public void updateUserPwd(@RequestBody Map<String, Object> pwdData) throws Exception {
 		Integer cardNo = (Integer)pwdData.get("cardNo");
 		String pwd = (String)pwdData.get("pwd");
-		uis.changeUserPwd(pwd, cardNo);
+		boolean flag = uis.changeUserPwd(pwd, cardNo);
 	}
 
 }

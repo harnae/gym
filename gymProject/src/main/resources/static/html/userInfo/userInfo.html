@@ -5,6 +5,8 @@
 <head>
     <link href="../../css/userinfo.css" rel="stylesheet" />
     <script src=""></script>
+    <meta th:name="_csrf" th:content="${_csrf.token}"/>
+	<meta th:name="_csrf_header" th:content="${_csrf.headerName}"/>
 </head>
 
 <body>
@@ -66,6 +68,12 @@ let mode = false;
 
 //const button1 = document.getElementByClass("updateButton");
 function updateMode () {
+	var token = $("meta[name='_csrf']").attr("content");
+    var header = $("meta[name='_csrf_header']").attr("content");
+    $(document).ajaxSend(function(e, xhr, options) {
+      xhr.setRequestHeader(header, token);
+    });
+
 	if(mode===false){
 		mode = true;
 		$(".updateButton").html('<button type="button" th:if="${userinfo.role == 2}" id="Button" onclick="updateMode()">修正!!</button>');
@@ -79,9 +87,9 @@ function updateMode () {
 	else{
 		if(window.confirm("go?")){
 			const userCardNo = /*[[${userinfo.cardNo}]]*/;
-			const userName = /*[[${userinfo.name}]]*/;
-			const userPhone = /*[[${userinfo.phone}]]*/;
-			const userAddr = /*[[${userinfo.addr}]]*/;
+			const userName = document.getElementById("name").value;
+			const userPhone = document.getElementById("phone").value;
+			const userAddr = document.getElementById("addr").value;
 			const userPwd = document.getElementById("pwd").value;
 			const userPwdck = document.getElementById("pwdck").value;
 			const updateInfo = {
@@ -97,16 +105,14 @@ function updateMode () {
 				data : JSON.stringify(updateInfo),
 				contentType : "application/json; charset:UTF-8",
 				//dataType : "json",
-				success : function(resp){
-					alert("success");
-				},
-				error : function(request, error, status){
-					console.log(request);
-					console.log(error);
-					console.log(status);
-					return;
-				}
-			});
+
+				})
+				.done(function(){
+
+				})
+				.fail(function(){
+
+				});
 
 			if(userPwd!=false){
 				if(userPwd==userPwdck){
@@ -114,6 +120,7 @@ function updateMode () {
 							"pwd" : userPwd,
 							"cardNo" : userCardNo
 					};
+
 					$.ajax({
 						type : "post",
 						url : "/updatePwd",

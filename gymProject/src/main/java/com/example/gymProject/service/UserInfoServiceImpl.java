@@ -26,6 +26,7 @@ public class UserInfoServiceImpl implements UserInfoService {
 	public boolean changeUserInfo(String name, String addr, String phone, Integer cardNo) {
 		try {
 			uid.changeInfo(name, addr, phone, cardNo);
+			//System.out.println("updateservice = ");
 			return true;
 		}
 		catch(Exception e) {
