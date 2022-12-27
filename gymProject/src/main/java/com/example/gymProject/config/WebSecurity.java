@@ -18,22 +18,12 @@ public class WebSecurity {
 
 	@Bean
 	public SecurityFilterChain filterChain(HttpSecurity httpSecurity) throws Exception {
-//	    return httpSecurity
-//	        .csrf(csrf -> csrf.disable())
-//	        .authorizeHttpRequests(auth -> auth
-//	            .requestMatchers("/").permitAll()
-//	            .anyRequest().authenticated()
-//	        )
-//	        .sessionManagement(sess -> sess.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
-//	        .oauth2ResourceServer(OAuth2ResourceServerConfigurer::jwt)
-//	        .httpBasic(Customizer.withDefaults())
-//	        .build();
+
 		return httpSecurity
 				//.csrf(csrf -> csrf.disable())
 				.authorizeHttpRequests(authco -> authco
 						.requestMatchers("/css/**","/js/**").permitAll()
 						.requestMatchers("/**").permitAll()
-
 						)
 				.build();
 

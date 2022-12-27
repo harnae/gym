@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.example.gymProject.form.UserInfoForm;
 import com.example.gymProject.service.UserInfoService;
 
+
 @Controller
 public class UserInfoController {
 	@Autowired
@@ -22,8 +23,11 @@ public class UserInfoController {
 	@Autowired
 	PasswordEncoder pe;
 
+
+
 	@GetMapping("/userinfo")
 	public String getUserInfo(@RequestParam Integer cardNo, Model model) {
+
 		UserInfoForm userinfo = uis.getUserInfo(cardNo);
 		if (userinfo.getRole() == 3) {
 			model.addAttribute("role", "admin");
