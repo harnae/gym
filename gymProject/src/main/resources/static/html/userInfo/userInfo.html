@@ -82,9 +82,8 @@ function updateMode () {
 			const userName = /*[[${userinfo.name}]]*/;
 			const userPhone = /*[[${userinfo.phone}]]*/;
 			const userAddr = /*[[${userinfo.addr}]]*/;
-			const userPwd = document.getElementById("pwd");
-			console.log(userCardNo);
-			console.log(userName);
+			const userPwd = document.getElementById("pwd").value;
+			const userPwdck = document.getElementById("pwdck").value;
 			const updateInfo = {
 				"cardNo" : userCardNo,
 				"name" : userName,
@@ -92,13 +91,6 @@ function updateMode () {
 				"addr" : userAddr
 			};
 
-			const test2 = {
-					"cardNo" : "1",
-					"name" : "feaed",
-					"phone" : "151351",
-					"addr" : "dafgrhth"
-			};
-			console.log(userName);
 			$.ajax({
 				type : "post",
 				url : "/update",
@@ -116,10 +108,34 @@ function updateMode () {
 				}
 			});
 
+			if(userPwd!=false){
+				if(userPwd==userPwdck){
+					const pwdData = {
+							"pwd" : userPwd,
+							"cardNo" : userCardNo
+					};
+					$.ajax({
+						type : "post",
+						url : "/updatePwd",
+						data : JSON.stringify(pwdData),
+						contentType : "application/json; charset:UTF-8",
+						success : function(resp){
+							console.log(resp);
+						},
+						error : function(request, error, status){
+							console.log(request);
+							console.log(error);
+							console.log(status);
+							return;
+						}
+					});
+				}
+				else{
+					alert("pwd error");
+				}
+			}
+
 		}
-
-
-
 
 
 		mode = false;

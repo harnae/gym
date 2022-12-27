@@ -3,6 +3,7 @@ package com.example.gymProject.controller;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,7 +19,8 @@ import com.example.gymProject.service.UserInfoService;
 public class UserInfoController {
 	@Autowired
 	UserInfoService uis;
-
+	@Autowired
+	PasswordEncoder pe;
 
 	@GetMapping("/userinfo")
 	public String getUserInfo(@RequestParam Integer cardNo, Model model) {
@@ -40,8 +42,16 @@ public class UserInfoController {
 		String name = (String)updateInfo.get("name");
 		String phone = (String)updateInfo.get("phone");
 		String addr = (String)updateInfo.get("addr");
-		//uis.changeUserInfo(name, addr, phone, cardNo);
-		System.out.println("updateinfo = " + updateInfo);
+		uis.changeUserInfo(name, addr, phone, cardNo);
+		//System.out.println("updateinfo = " + updateInfo);
+	}
+
+	@ResponseBody
+	@PostMapping("/updatePwd")
+	public void updateUserPwd(@RequestBody Map<String, Object> pwdData) throws Exception {
+		Integer cardNo = (Integer)pwdData.get("cardNo");
+		String pwd = (String)pwdData.get("pwd");
+		uis.changeUserPwd(pwd, cardNo);
 	}
 
 }
