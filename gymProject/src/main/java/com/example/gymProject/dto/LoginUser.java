@@ -12,14 +12,11 @@ import lombok.Data;
 
 @Data
 public class LoginUser implements UserDetails{
-	private int id_num;
+	
 	private String username;
 	private String password;
 	private String role;
-	private String gender;
-	private String name;
-	private String phone;
-	private String area;
+	
 	
 	
 	@Builder
@@ -27,15 +24,17 @@ public class LoginUser implements UserDetails{
 		this.username = username;
 		this.password = password;
 		this.role = role;
+		
 	}
 	
-	private Collection<? extends GrantedAuthority> authorities;
 	
-	@Override
+
+
 	public Collection<? extends GrantedAuthority> getAuthorities() {
 		ArrayList<GrantedAuthority> roleList = new ArrayList<GrantedAuthority>();
 		roleList.add(new SimpleGrantedAuthority(role));
 		return roleList;
+
 	}
 
 	@Override

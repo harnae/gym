@@ -3,12 +3,16 @@
 <title>会員情報</title>
 
 <head>
-    <link href="css/userinfo.css" rel="stylesheet" />
+    <link href="/css/userinfo.css" rel="stylesheet" />
     <script src=""></script>
 </head>
 
 <body>
-    <h2 style="text-align: center;">会員情報</h2>
+    <h2 style="text-align: center;">会員情報</h2> 
+    <form action="/logout" method="post" align="right" onSubmit="return logoutCheck()">
+		<button>Log out</button>
+    </form>
+    
     <form action="">
         <div id="wrapper">
             <table class="table">
@@ -59,5 +63,16 @@
         </div>
     </form>
 </body>
+<script type="text/javascript">
+function logoutCheck(){
+	if(window.confirm("よろしいですか？")){
+        return true;
+    }
+    else{
+        window.alert("キャンセルしました");
+        return false;
+    }
+}
+</script>
 
 </html>

@@ -7,34 +7,29 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import com.example.gymProject.dao.UserMapper;
 import com.example.gymProject.dto.LoginUser;
 import com.example.gymProject.dto.NewUserDto;
-import com.example.gymProject.mapper.UserMapper;
 
 import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
 @Service
 public class UserService implements UserDetailsService{
+	
 	@Autowired
 	private UserMapper loginMapper;
+	
 
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 
-		System.out.println(username);
-		System.out.println("login");		
-		LoginUser loginUser = loginMapper.login(username);
-		if(loginUser == null) {
-			throw new UsernameNotFoundException(username);
+		LoginUser user = loginMapper.login(username);
+		if(user != null) {
+			return user;
 		}
-		System.out.println(loginUser);
-		return loginUser;
-
-//		
-		
-//		LoginUser loginUser = loginMapper.login(username);
-//		return loginUser;
+        return null;
+        
 	}
 	
 	

@@ -1,13 +1,16 @@
 <html>
 <head>
 <title>会員リスト</title>
-<link href="css/list.css" rel="stylesheet" />
+<link href="/css/list.css" rel="stylesheet" />
 </head>
 
 
 <body>
 </br>
 <h2 align="center">会員リスト</h2>
+<form action="/logout" method="post" align="right" onSubmit="return logoutCheck()">
+		<button>Log out</button>
+    </form>
 <p>
 <div class="searchForm" style="float:right;">
 <form method="get" action="#" class="search_container">
@@ -71,4 +74,16 @@
 </div>
 
 </body>
+<script type="text/javascript">
+function logoutCheck(){
+	if(window.confirm("よろしいですか？")){
+        return true;
+    }
+    else{
+        window.alert("キャンセルしました");
+        return false;
+    }
+}
+
+</script>
 </html>
