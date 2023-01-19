@@ -2,48 +2,36 @@
 <head>
   <title>ログイン</title>
   <link href="/css/login.css" rel="stylesheet" />
-<!--   <script src="login.js"></script> -->
 </head>
 
 
 <body>
 </br>
 </br>
-<h2 class="gymTitle">
-スポーツジムへようこそ！
-</h2>
 <div class="login">
   <div class="login-triangle"></div>
   
-  <h2 class="login-header">Log in</h2>
+  <h2 class="login-header">ログイン</h2>
 
   <form class="login-container" id="login" th:action="@{/loginProc}" method="post" onsubmit="return ck(this);">
 <div align="center">
 
-<!-- <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" /> -->
-<!--   <label>
-    <input type="radio" name="role" value="notAdmin" checked/>
-    <span>会員</span>
-    </label>
-
-<label>
-<input type="radio" name="role" value="admin" />
-<span>管理者</span>
-</label>
- -->
 
 </div>
-    <p><input type="id" id="id" name="username" placeholder="ID"></p>
+    <p><input type="id" id="id" name="username" placeholder="ユーザID"></p>
     <div id="idError" class="error"></div>
-    <p><input type="password" id="pwd" name="password" placeholder="Password"></p>
-    <div id="passwordError" class="error"></div>
-    
-<p><button>Log in</button></p>
-<p><a href="/newuser">Sign in</a></p>
+    <p><input type="password" id="pwd" name="password" placeholder="パスワード"></p>
+    <div id="passwordError" class="error">IDを持っていない場合は会員登録をクリックしてください</div>
+<div class="link">  
+<p><input type="submit" value="ログイン"></p>
+<p><button type="button" onclick="goNewUser()">会員登録</button></p></div>
   </form>
 </div>
 
 <script>
+function goNewUser(){
+	location.href = "/newuser"
+}
 
   
   function ck(){
@@ -87,7 +75,8 @@
 	  const error = getParameterByName('error');
 	  console.log(error);
 	    if(error == '1'){
-	    	alert("IDかパスワードを確認してください。");
+	    	alert("ユーザIDかパスワードを確認してください。");
+	    	location.href = "/login";
 	    }
 	}
 

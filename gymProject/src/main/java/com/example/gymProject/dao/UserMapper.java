@@ -15,7 +15,7 @@ public interface UserMapper {
 	public LoginUser login(String username);
 	
 	
-	@Insert("Insert into user_info(username, password, name, gender, phone, area, role)"
-			+ " values(#{username}, #{password}, #{name}, #{gender}, #{phone}, #{area}, #{role})")
+	@Insert("Insert into user_info(username, password, nameKanji, nameKana, gender, phone, postCode, area, role)"
+			+ " values(#{username}, #{password}, #{nameKanji}, #{nameKana}, #{gender}, #{phone}, #{postCode}, #{area}, #{role})")
 	public void save(NewUserDto user);
 }

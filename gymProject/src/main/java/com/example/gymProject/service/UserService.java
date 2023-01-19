@@ -40,9 +40,11 @@ public class UserService implements UserDetailsService{
 		    infoDto.setPassword(encoder.encode(infoDto.getPassword()));
 		    loginMapper.save(NewUserDto.builder()
 			        .username(infoDto.getUsername())
-			        .name(infoDto.getName())
+			        .nameKanji(infoDto.getNameKanji())
+			        .nameKana(infoDto.getNameKana())
 			        .gender(infoDto.getGender())
-			        .area(infoDto.getArea())
+			        .area(infoDto.getArea()+infoDto.getAreaDetail())
+			        .postCode(infoDto.getPostCode())
 			        .phone(infoDto.getPhone())
 			        .role(infoDto.getRole())
 			        .password(infoDto.getPassword()).build());

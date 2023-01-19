@@ -28,9 +28,9 @@ public class UserController {
 	@GetMapping("/info")
 	public String userInfo(Authentication authentication) {
 		if(authentication.getAuthorities().toString().equals("[ROLE_USER]")) {
-			return "redirect:/userinfo";
+			return "redirect:/main";
 		}else if(authentication.getAuthorities().toString().equals("[ROLE_ADMIN]")){
-			return "redirect:/userlist";
+			return "redirect:/admin/userlist";
 		}else {
 			return "redirect:/error";
 		}

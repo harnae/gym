@@ -7,26 +7,57 @@
 
 <body>
 </br>
-<h2 align="center">会員リスト</h2>
+<h2 align="center">会員リスト　(管理者)</h2>
 <form action="/logout" method="post" align="right" onSubmit="return logoutCheck()">
-		<button>Log out</button>
+		<button>ログアウト</button>
     </form>
 <p>
 <div class="searchForm" style="float:right;">
 <form method="get" action="#" class="search_container">
-  <input type="text" size="25" placeholder="検索">
-  <input type="submit" value="Search">
+  <input type="text" size="25" placeholder="氏名検索">
+  <input type="submit" value="検索">
 </form>
 </div>
 </p>
 
 </br>
+<div style="overflow:auto; width:100%; height:60%">
 <table>
 <tr>
 <th class="cardNo">カード番号</th>
-<th class="name">お名前</th>
+<th class="name">氏名</th>
 <th class="gender">性別</th>
 <th class="phone">電話番号</th>
+</tr>
+<tr>
+<td>xxxxxx</td>
+<td>xxxxxxx</td>
+<td>x</td>
+<td>xxx-xxxx-xxxx</td>
+</tr>
+<tr>
+<td>xxxxxx</td>
+<td>xxxxxxx</td>
+<td>x</td>
+<td>xxx-xxxx-xxxx</td>
+</tr>
+<tr>
+<td>xxxxxx</td>
+<td>xxxxxxx</td>
+<td>x</td>
+<td>xxx-xxxx-xxxx</td>
+</tr>
+<tr>
+<td>xxxxxx</td>
+<td>xxxxxxx</td>
+<td>x</td>
+<td>xxx-xxxx-xxxx</td>
+</tr>
+<tr>
+<td>xxxxxx</td>
+<td>xxxxxxx</td>
+<td>x</td>
+<td>xxx-xxxx-xxxx</td>
 </tr>
 <tr>
 <td>xxxxxx</td>
@@ -68,11 +99,12 @@
 -->
 
 </table>
+</div>
 </br>
-<div style="text-align: center;">
+<!-- <div style="text-align: center;">
 <a href="">1</a>
 </div>
-
+ -->
 </body>
 <script type="text/javascript">
 function logoutCheck(){
