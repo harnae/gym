@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<title>会員情報</title>
+
+<head>
+    <link href="/css/userinfo.css" rel="stylesheet" />
+    <script src=""></script>
+</head>
+
+<body>
+    <h2 style="text-align: center;">会員情報</h2> 
+    <form action="/logout" method="post" align="right" onSubmit="return logoutCheck()">
+		<button>ログアウト</button>
+    </form>
+    
+    <form action="">
+        <div id="wrapper">
+            <table class="table">
+                <tr>
+                    <td class="cardNo">カード番号</td>
+                    <td>xxxxxx</td>
+                </tr>
+                <tr>
+                    <td class="id">ユーザID</td>
+                    <td>xxxxxxxx</td>
+                </tr>
+                <tr>
+                    <td class="nameKanji">氏名(漢字)</td>
+                    <td>xxxxxxx</td>
+                </tr>
+                <tr>
+                    <td class="nameKana">氏名(カナ)</td>
+                    <td>xxxxxxx</td>
+                </tr>
+                <tr>
+                    <td class="postCode">郵便番号</td>
+                    <td>000-0000</td>
+                </tr>
+                <tr>
+                    <td class="address">住所</td>
+                    <td>xxxxxxxxxxxxxxxxxxxxxxxxxxxxx</td>
+                </tr>
+                <tr>
+                    <td class="phone">電話番号</td>
+                    <td>xxx-xxxx-xxxx</td>
+                </tr>
+                <tr>
+                    <td class="gender">性別</td>
+                    <td>x</td>
+                </tr>
+                <tr>
+                    <td class="startTime">入館時間</td>
+                    <td>xxxx年xx月xx日　xx時xx分</td>
+                </tr>
+                <tr>
+                    <td class="endTime">退館時間</td>
+                    <td>xxxx年xx月xx日　xx時xx分</td>
+                </tr>
+                <tr>
+                    <td colspan="2"><button id="Button" onclick="">修正</button></td>
+                </tr>
+            </table>
+        </div>
+    </form>
+</body>
+<script type="text/javascript">
+function logoutCheck(){
+	if(window.confirm("よろしいですか？")){
+        return true;
+    }
+    else{
+        window.alert("キャンセルしました");
+        return false;
+    }
+}
+</script>
+
+</html>

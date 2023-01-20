@@ -45,7 +45,11 @@ div {
     width: 100%;
 }
 
-.name input {
+.nameKanji input {
+    width: 100%;
+}
+
+.nameKana input {
     width: 100%;
 }
 
@@ -61,12 +65,32 @@ div {
     width: 100%;
 }
 
+.postCode input{
+    width: 30%;
+}
+
+button{
+	
+    border-width: 1px;
+    border-style: solid;
+    padding: 5px;
+    background: #28d;
+    border-color: transparent;
+    color: #fff;
+}
+
 .area input{
     width: 100%;
+    
+}
+
+#area {
+	width: 55%;
+	margin-bottom: 3px;
 }
 
 .gender {
-    text-align: center;
+    text-align: left;
 }
 
 .signUp input[type="submit"]:hover {

@@ -1,0 +1,121 @@
+<html>
+<head>
+<title>会員リスト</title>
+<link href="/css/list.css" rel="stylesheet" />
+</head>
+
+
+<body>
+</br>
+<h2 align="center">会員リスト　(管理者)</h2>
+<form action="/logout" method="post" align="right" onSubmit="return logoutCheck()">
+		<button>ログアウト</button>
+    </form>
+<p>
+<div class="searchForm" style="float:right;">
+<form method="get" action="#" class="search_container">
+  <input type="text" size="25" placeholder="氏名検索">
+  <input type="submit" value="検索">
+</form>
+</div>
+</p>
+
+</br>
+<div style="overflow:auto; width:100%; height:60%">
+<table>
+<tr>
+<th class="cardNo">カード番号</th>
+<th class="name">氏名</th>
+<th class="gender">性別</th>
+<th class="phone">電話番号</th>
+</tr>
+<tr>
+<td>xxxxxx</td>
+<td>xxxxxxx</td>
+<td>x</td>
+<td>xxx-xxxx-xxxx</td>
+</tr>
+<tr>
+<td>xxxxxx</td>
+<td>xxxxxxx</td>
+<td>x</td>
+<td>xxx-xxxx-xxxx</td>
+</tr>
+<tr>
+<td>xxxxxx</td>
+<td>xxxxxxx</td>
+<td>x</td>
+<td>xxx-xxxx-xxxx</td>
+</tr>
+<tr>
+<td>xxxxxx</td>
+<td>xxxxxxx</td>
+<td>x</td>
+<td>xxx-xxxx-xxxx</td>
+</tr>
+<tr>
+<td>xxxxxx</td>
+<td>xxxxxxx</td>
+<td>x</td>
+<td>xxx-xxxx-xxxx</td>
+</tr>
+<tr>
+<td>xxxxxx</td>
+<td>xxxxxxx</td>
+<td>x</td>
+<td>xxx-xxxx-xxxx</td>
+</tr>
+<tr>
+<td>xxxxxx</td>
+<td>xxxxxxx</td>
+<td>x</td>
+<td>xxx-xxxx-xxxx</td>
+</tr>
+<tr>
+<td>xxxxxx</td>
+<td>xxxxxxx</td>
+<td>x</td>
+<td>xxx-xxxx-xxxx</td>
+</tr>
+<tr>
+<td>xxxxxx</td>
+<td>xxxxxxx</td>
+<td>x</td>
+<td>xxx-xxxx-xxxx</td>
+</tr>
+<tr>
+<td>xxxxxx</td>
+<td>xxxxxxx</td>
+<td>x</td>
+<td>xxx-xxxx-xxxx</td>
+</tr>
+<!--
+<tr th:each="user : ${userList}">
+		<td th:text="${user.cardNo}"></td>
+		<td th:text="${user.name}"></td>
+		<td th:text="${user.gender}"></td>
+		<td th:text="${user.phone}"></td>
+</tr>
+-->
+
+</table>
+</div>
+</br>
+<!-- <div style="text-align: center;">
+<a href="">1</a>
+</div>
+ -->
+</body>
+<script type="text/javascript">
+function logoutCheck(){
+	if(window.confirm("よろしいですか？")){
+        return true;
+    }
+    else{
+        window.alert("キャンセルしました");
+        return false;
+    }
+}
+
+</script>
+</html>

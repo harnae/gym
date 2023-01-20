@@ -1,0 +1,92 @@
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+  <title>ログイン</title>
+  <link href="/css/login.css" rel="stylesheet" />
+</head>
+
+
+<body>
+</br>
+</br>
+<div class="login">
+  <div class="login-triangle"></div>
+  
+  <h2 class="login-header">ログイン</h2>
+
+  <form class="login-container" id="login" th:action="@{/loginProc}" method="post" onsubmit="return ck(this);">
+<div align="center">
+
+
+</div>
+    <p><input type="id" id="id" name="username" placeholder="ユーザID"></p>
+    <div id="idError" class="error"></div>
+    <p><input type="password" id="pwd" name="password" placeholder="パスワード"></p>
+    <div id="passwordError" class="error">IDを持っていない場合は会員登録をクリックしてください</div>
+<div class="link">  
+<p><input type="submit" value="ログイン"></p>
+<p><button type="button" onclick="goNewUser()">会員登録</button></p></div>
+  </form>
+</div>
+
+<script>
+function goNewUser(){
+	location.href = "/newuser"
+}
+
+  
+  function ck(){
+  
+  let id = document.getElementById("id").value;
+  let password = document.getElementById("pwd").value;
+  let check = true;
+  
+  
+  
+  if (password === "") {
+    document.getElementById("passwordError").innerHTML = "暗証番号を入力してください";
+      check = false;
+  } else {
+    document.getElementById("passwordError").innerHTML = "";
+  }
+  
+  if (id === "") {
+    document.getElementById("idError").innerHTML = "IDを入力してください";
+      check = false;
+  } else {
+    document.getElementById("idError").innerHTML = "";
+  }
+  
+  return check;
+  
+  }
+  
+  function getParameterByName( name ){
+	  name = name.replace(/[\[]/,"\\\[").replace(/[\]]/,"\\\]");
+	  var regexS = "[\\?&]"+name+"=([^&#]*)";
+	  var regex = new RegExp( regexS );
+	  var results = regex.exec( window.location.href );
+	  if( results == null )
+	    return "";
+	  else
+	    return decodeURIComponent(results[1].replace(/\+/g, " "));
+	}
+  
+  window.onload = function() {
+	  const error = getParameterByName('error');
+	  console.log(error);
+	    if(error == '1'){
+	    	alert("ユーザIDかパスワードを確認してください。");
+	    	location.href = "/login";
+	    }
+	}
+
+</script>
+
+
+</body>
+
+
+</html>
+
+
+
